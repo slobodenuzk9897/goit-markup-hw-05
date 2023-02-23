@@ -270,6 +270,9 @@ img {
 }
 
 .icon-close {
+  position: absolute;
+  right: 24px;
+  top: 24px;
   display: inline-flex;
   border: 1px solid rgba(0, 0, 0, 0.1);
   margin: 0;
