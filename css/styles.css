@@ -106,6 +106,28 @@ img {
   line-height: 1.5;
   text-decoration: none;
 }
+.item {
+  position: relative;
+}
+.link-header::after {
+  content: '';
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: var(--accent-color);
+
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-header:hover::after {
+  transform: scaleX(1);
+}
 
 .site-nav .link:hover,
 .site-nav .link:focus {
@@ -131,6 +153,8 @@ img {
   font-size: 16px;
   line-height: 1.5;
   text-decoration: none;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-nav .link-adress:hover,
@@ -201,6 +225,7 @@ img {
   letter-spacing: 0.02em;
 
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop {
@@ -210,21 +235,56 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
+
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden.modal {
+  transform: translate(-50%, -50%) scale(0.9);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 408px;
   height: 576px;
 
   background-color: #fcfcfc;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Sections header*/
+.modal-icon {
+  fill: #000000;
+  width: 8px;
+  height: 8px;
+}
+
+.icon-close {
+  display: inline-flex;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0;
+  padding: 8px;
+  border-radius: 50%;
+  height: 25px;
+
+  background-color: #e7e9fc;
+  color: #000000;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Sections  */
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -366,6 +426,25 @@ img {
 .team-soc-link:focus {
   background-color: var(--accent-color);
   cursor: pointer;
+  animation: shake 2s;
+}
+
+@keyframes shake {
+  0%,
+  50%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  10%,
+  30% {
+    transform: rotate(-10deg);
+  }
+
+  20%,
+  40% {
+    transform: rotate(10deg);
+  }
 }
 
 .section-title {
@@ -424,6 +503,8 @@ img {
   height: 88px;
   color: #8e8f99;
   border-radius: 4px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-link:is(:hover, :focus) {
@@ -480,6 +561,8 @@ img {
   background-color: var(--white-color-with-shadow);
   border: none;
   border-radius: 4px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filtrs .button-header:active {
@@ -631,4 +714,23 @@ img {
   fill: var(--white-color-with-shadow);
   background-color: #31d0aa;
   cursor: pointer;
+  animation: shake 2s;
+}
+
+@keyframes shake {
+  0%,
+  50%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  10%,
+  30% {
+    transform: rotate(-10deg);
+  }
+
+  20%,
+  40% {
+    transform: rotate(10deg);
+  }
 }
