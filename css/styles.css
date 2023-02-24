@@ -651,7 +651,8 @@ img {
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.cards-link:hover .overlay-cards {
+.cards-link:hover .overlay-cards,
+.cards-link:focus .overlay-cards {
   transform: translateY(0);
 }
 
